@@ -9,6 +9,7 @@ Using puppet manifests:
 
 ``` puppet
 class { 'dnsserver':
+  dns_forwarders => [ '8.8.8.8', '8.8.4.4', '1.1.1.1' ],
   dns_zone => {
     'example.com' => {
       soa          => 'ns1.example.com',
@@ -43,6 +44,11 @@ Using hiera:
 classes:
   - dnsserver
 
+dnsserver::dns_forwarders:
+  8.8.8.8
+  8.8.4.4
+  1.1.1.1
+
 dnsserver::dns_zone:
   example.com:
     soa: ns1.example.com
@@ -72,7 +78,6 @@ vagrant up
 vagrant ssh
 sudo puppet apply /vagrant/tests/init.pp
 ```
-
 
 ## How to run tests
 

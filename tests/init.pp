@@ -14,6 +14,7 @@
 
 
 class { 'dnsserver':
+  dns_forwarders => [ '8.8.8.8', '8.8.4.4', '1.1.1.1' ],
   dns_zone => {
     'example.com' => {
       soa          => 'ns1.example.com',

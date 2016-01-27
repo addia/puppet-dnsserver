@@ -10,12 +10,13 @@
 class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
+  $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
   include dns::server
 
   dns::server::options { '/etc/named/named.conf.options':
-    forwarders => [ '8.8.8.8', '8.8.4.4' ]
+    forwarders => $dns_forwarders
   }
 
   if $dns_zone {
