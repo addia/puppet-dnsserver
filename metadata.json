@@ -1,0 +1,24 @@
+{
+  "name": "landregistry-dnsserver",
+  "version": "0.1.0",
+  "author": "landregistry",
+  "summary": "Deploy a named dns server",
+  "license": "MIT",
+  "source": "https://github.com/LandRegistry-Ops/puppet-dnsserver",
+  "project_page": "https://github.com/LandRegistry-Ops/puppet-dnsserver",
+  "issues_url": "https://github.com/LandRegistry-Ops/puppet-dnsserver/issues",
+  "dependencies": [
+    {
+      "name": "ajjahn-dns",
+      "version_requirement": ">= 2.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ]
+}

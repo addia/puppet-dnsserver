@@ -1,0 +1,10 @@
+HOSTS:
+  landregistry-centos:
+    roles:
+      - master
+    platform: el-7-x86_64
+    box: landregistry/centos
+    hypervisor: vagrant
+CONFIG:
+  log_level: verbose
+  type: foss
