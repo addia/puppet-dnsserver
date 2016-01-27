@@ -45,9 +45,9 @@ classes:
   - dnsserver
 
 dnsserver::dns_forwarders:
-  8.8.8.8
-  8.8.4.4
-  1.1.1.1
+  - 8.8.8.8
+  - 8.8.4.4
+  - 1.1.1.1
 
 dnsserver::dns_zone:
   example.com:
