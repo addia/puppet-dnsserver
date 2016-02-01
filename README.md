@@ -60,9 +60,17 @@ dnsserver::dns_zone:
     nameservers: [ns1]
 
 dnsserver::dns_a_record:
-  huey:
+  huey.example.com
     zone: example.com
     data: 98.76.54.32
+  duey:
+    zone: 'example.com'
+    data: 12.23.34.45
+
+dnsserver::dns_cname_record:
+  huey:
+    zone: example.com
+    data: huey.example.com
   duey:
     zone: 'example.com'
     data: 12.23.34.45
