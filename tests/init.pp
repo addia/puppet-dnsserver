@@ -12,31 +12,41 @@
 
 
 
-
 class { 'dnsserver':
   dns_forwarders => [ '8.8.8.8', '8.8.4.4', '1.1.1.1' ],
   dns_zone => {
     'example.com' => {
       soa          => 'ns1.example.com',
       soa_email    => 'admin.example.com',
-      nameservers  => ['ns1']
+      nameservers  => ['ns1.example.com']
       },
     '1.168.192.IN-ADDR.ARPA' => {
       soa          => 'ns1.example.com',
       soa_email    => 'admin.example.com',
-      nameservers  => ['ns1']
+      nameservers  => ['ns1.example.com']
     }
   },
   dns_a_record => {
+    'ns1' => {
+      zone  => 'example.com',
+      data  => ['192.168.1.249'] },
     'huey' => {
       zone  => 'example.com',
-      data  => ['98.76.54.32'] },
+      data  => ['192.168.1.32'] },
     'duey' => {
       zone  => 'example.com',
       data  => ['12.34.56.78', '12.23.34.45'] },
     'luey' => {
       zone  => 'example.com',
       data  => ['192.168.1.25'],
-      ptr   => true}
+      ptr   => true }
   },
+  dns_cname_record => {
+    'hueysbrother' => {
+      zone  => 'example.com',
+      data  => ['huey.example.com'] },
+    'lueysbrother' => {
+      zone  => 'example.com',
+      data  => ['luey.example.com'] },
+  }
 }
