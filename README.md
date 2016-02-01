@@ -96,6 +96,14 @@ dnsserver::dns_cname_record:
     zone: example.com
     data: luey.example.com
 
+dnsserver::dns_cname_record:
+  huey:
+    zone: example.com
+    data: huey.example.com
+  duey:
+    zone: 'example.com'
+    data: 12.23.34.45
+
 ```
 
 ## Executing The Module
