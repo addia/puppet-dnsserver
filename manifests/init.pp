@@ -32,4 +32,10 @@ class dnsserver (
     create_resources('dns::record::cname', $dns_cname_record)
   }
 
+  # Load SELinuux policy for named
+  selinux::module { 'dns':
+    ensure => 'present',
+    source => 'puppet:///modules/dnsserver/dns.te'
+  }
+
 }
