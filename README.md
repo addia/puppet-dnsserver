@@ -45,7 +45,7 @@ class { 'dnsserver':
       zone  => 'example.com',
       data  => ['luey.example.com'] },
   }
-} 
+}
 ```
 
 Using hiera:
@@ -110,10 +110,8 @@ dnsserver::dns_cname_record:
 
 This will run the init.pp test in the tests folder.
 
-``` puppet
+```
 vagrant up
-vagrant ssh
-sudo puppet apply /vagrant/tests/init.pp
 ```
 
 ## How to run tests

@@ -1,16 +1,16 @@
 {
-  "name": "landregistry-dnsserver",
-  "version": "0.1.0",
+  "name": "puppet-dnsserver",
+  "version": "0.1.1",
   "author": "landregistry",
-  "summary": "Deploy a named dns server",
+  "summary": "Deploy a named dns server NB module is also dependant on ajjahn-dns 2.0.1 however there is no forge release for this module at time of writing",
   "license": "MIT",
   "source": "https://github.com/LandRegistry-Ops/puppet-dnsserver",
   "project_page": "https://github.com/LandRegistry-Ops/puppet-dnsserver",
   "issues_url": "https://github.com/LandRegistry-Ops/puppet-dnsserver/issues",
   "dependencies": [
     {
-      "name": "ajjahn-dns",
-      "version_requirement": ">= 2.0.0"
+      "name": "jfryman-selinux",
+      "version_requirement": "= 0.2.3"
     }
   ],
   "operatingsystem_support": [
