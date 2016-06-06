@@ -1,6 +1,6 @@
 # == Class: application
 #
-# Installs Gradle
+# Installs a dns server
 #
 # === Parameters
 #
@@ -11,7 +11,7 @@ class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
+  $dns_forwarders = hiera('dns_forwarders')
   ){
 
   include dns::server
