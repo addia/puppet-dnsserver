@@ -11,7 +11,7 @@ class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dnssec_enable = undef,
+  $dnssec_enable = 'false',
   $dns_forwarders = hiera('dns_forwarders')
   ){
 
