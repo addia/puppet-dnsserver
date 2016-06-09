@@ -11,8 +11,8 @@ class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dnssec_enable = 'false',
-  $dns_forwarders = hiera('dns_forwarders')
+  $dnssec_enable = false,
+  $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
   include dns::server
