@@ -12,13 +12,15 @@ class dnsserver (
   $dns_a_record = undef,
   $dns_cname_record = undef,
   $dnssec_enable = false,
+  $allow_recursion = [ '10.0.0.0/8' ],
   $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
   include dns::server
 
   dns::server::options { '/etc/named/named.conf.options':
-    forwarders => $dns_forwarders
+    forwarders => $dns_forwarders,
+    allow_recursion => $allow_recursion
   }
 
   if $dns_zone {
