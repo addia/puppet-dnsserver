@@ -19,7 +19,7 @@ class dnsserver (
   include dns::server
 
   dns::server::options { '/etc/named/named.conf.options':
-    forwarders => $dns_forwarders,
+    forwarders      => $dns_forwarders,
     allow_recursion => $allow_recursion
   }
 
