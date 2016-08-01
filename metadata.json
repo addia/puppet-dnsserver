@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "jfryman-selinux",
-      "version_requirement": "= 0.2.3"
+      "version_requirement": ">= 0.4.0 < 1.0.0"
     }
   ],
   "operatingsystem_support": [
