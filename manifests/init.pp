@@ -12,7 +12,7 @@ class dnsserver (
   $dns_a_record = undef,
   $dns_cname_record = undef,
   $dnssec_enable = false,
-  $allow_recursion = [ '10.0.0.0/8' ],
+  $allow_recursion = [ '127.0.0.1', '10.0.0.0/8' ],
   $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
@@ -33,6 +33,11 @@ class dnsserver (
 
   if $dns_cname_record {
     create_resources('dns::record::cname', $dns_cname_record)
+  }
+
+  file_line { 'disable_ipv6':
+    path            => '/etc/sysconfig/named',
+    line            => 'OPTIONS=" -4' 
   }
 
   # Load SELinuux policy for named
