@@ -9,7 +9,7 @@
    "Rakefile": "8bec5fde0d42cbe30530d1e10e0c5fed",
    "Vagrantfile": "4542b82318d505765c90a22946a00034",
    "files/dns.te": "da6061f16a24f115d21771d6372b2233",
-   "manifests/init.pp": "522a1346ce8db559075c69c317f5580f",
+   "manifests/init.pp": "4524236d1e345ed374c46ff23a4b4696",
    "spec/acceptance/class_spec.rb": "4732f269ec47941aac9022d5c9b00568",
    "spec/acceptance/nodesets/default.yml": "4e76ffb6f7dd9f4125af5018990d9872",
    "spec/classes/coverage_spec.rb": "5b6dfa0dd426aca0ccfae23c0a629f0b",

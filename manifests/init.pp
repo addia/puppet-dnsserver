@@ -1,17 +1,46 @@
-# == Class: application
+# == Class: dnsserver
+# ===========================
 #
-# Installs a dns server
 #
-# === Parameters
+# Description of the Class:
 #
-# [*sample_parameter*]
+#   Install and configure a non-public locally serving and caching dns server
+#
+#
+# Document all Parameters:
+#
 #   Explanation of what this parameter affects and what it defaults to.
+#   dns_zone                           = a zone file
+#   dns_a_record                       = a dns A record
+#   dns_cname_record                   = a dns cname record
+#   dnssec_enable                      = bolean true or false
+#   listen_on_ipv6                     = bolean true or false
+#   options                            = options for the sysconf file
+#   allow_recursion                    = enable with listen IPs
+#   dns_forwarders                     = enable with IP addresses of remote dns provisers
+#
+# ===========================
+#
+#
+# == Authors
+# ----------
+#
+# Author: John Stern  and  Addi <addi.abel@gmail.com>
+#
+#
+# == Copyright
+# ------------
+#
+# Copyright:  ©  2016  LR
+#
 #
 class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dnssec_enable = false,
+  $dnssec_enable = undef,
+  $listen_on_ipv6 = undef,
+  $options = '-4',
   $allow_recursion = [ '127.0.0.1', '10.0.0.0/8' ],
   $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
@@ -33,11 +62,6 @@ class dnsserver (
 
   if $dns_cname_record {
     create_resources('dns::record::cname', $dns_cname_record)
-  }
-
-  file_line { 'disable_ipv6':
-    path            => '/etc/sysconfig/named',
-    line            => 'OPTIONS=" -4' 
   }
 
   # Load SELinuux policy for named
