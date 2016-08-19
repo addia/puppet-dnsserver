@@ -38,9 +38,9 @@ class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dnssec_enable = undef,
-  $listen_on_ipv6 = undef,
-  $options = '-4',
+  $dnssec_enable = '[]',
+  $listen_on_ipv6 = '[]',
+  $def_options = '-4',
   $allow_recursion = [ '127.0.0.1', '10.0.0.0/8' ],
   $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
   ){
@@ -52,6 +52,7 @@ class dnsserver (
     allow_recursion => $allow_recursion,
     dnssec_enable   => $dnssec_enable,
     listen_on_ipv6  => $listen_on_ipv6,
+    options         => $def_options
   }
 
 # dns::server::default { '/etc/sysconfig/named':
