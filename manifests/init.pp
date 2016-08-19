@@ -49,7 +49,13 @@ class dnsserver (
 
   dns::server::options { '/etc/named/named.conf.options':
     forwarders      => $dns_forwarders,
-    allow_recursion => $allow_recursion
+    allow_recursion => $allow_recursion,
+    dnssec_enable   => $dnssec_enable,
+    listen_on_ipv6  => $listen_on_ipv6,
+  }
+
+  dns::server::options { '/etc/named/named.conf.options':
+    options         => $options
   }
 
   if $dns_zone {
