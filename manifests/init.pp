@@ -52,7 +52,6 @@ class dnsserver (
     allow_recursion => $allow_recursion,
     dnssec_enable   => $dnssec_enable,
     listen_on_ipv6  => $listen_on_ipv6,
-    options         => $def_options
   }
 
 # dns::server::default { '/etc/sysconfig/named':
