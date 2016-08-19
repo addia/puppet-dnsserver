@@ -54,9 +54,9 @@ class dnsserver (
     listen_on_ipv6  => $listen_on_ipv6,
   }
 
-  dns::server::default { '/etc/sysconfig/named':
-    options         => $options
-  }
+# dns::server::default { '/etc/sysconfig/named':
+#   options         => $options
+# }
 
   if $dns_zone {
     create_resources('dns::zone', $dns_zone)
