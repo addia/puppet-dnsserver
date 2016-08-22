@@ -14,7 +14,7 @@
 #   dns_a_record                       = a dns A record
 #   dns_cname_record                   = a dns cname record
 #   dnssec_enable                      = bolean true or false
-#   listen_on_ipv6                     = bolean true or false
+#   listen_on_ipv6                     = none or ipv6 IP
 #   options                            = options for the sysconf file
 #   allow_recursion                    = enable with listen IPs
 #   dns_forwarders                     = enable with IP addresses of remote dns provisers
@@ -38,7 +38,7 @@ class dnsserver (
   $dns_zone = undef,
   $dns_a_record = undef,
   $dns_cname_record = undef,
-  $dnssec_enable = undef,
+  $dnssec_enable = 'no',
   $listen_on_ipv6 = [ 'none' ],
   $def_options = '-4',
   $allow_recursion = [ '127.0.0.1', '10.0.0.0/8' ],
