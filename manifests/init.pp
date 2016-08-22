@@ -14,6 +14,7 @@
 #   dns_a_record                       = a dns A record
 #   dns_cname_record                   = a dns cname record
 #   dnssec_enable                      = bolean true or false
+#   dnssec_validation                  = bolean true or false
 #   listen_on_ipv6                     = none or ipv6 IP
 #   options                            = options for the sysconf file
 #   allow_recursion                    = enable with listen IPs
@@ -35,28 +36,25 @@
 #
 #
 class dnsserver (
-  $dns_zone = undef,
-  $dns_a_record = undef,
-  $dns_cname_record = undef,
-  $dnssec_enable = 'no',
-  $listen_on_ipv6 = [ 'none' ],
-  $def_options = '-4',
-  $allow_recursion = [ '127.0.0.1', '10.0.0.0/8' ],
-  $dns_forwarders = [ '8.8.8.8', '8.8.4.4' ],
+  $dns_zone             = undef,
+  $dns_a_record         = undef,
+  $dns_cname_record     = undef,
+  $dnssec_enable        = 'false',
+  $dnssec_validation    = 'false',
+  $listen_on_ipv6       = [ 'none' ],
+  $allow_recursion      = [ '127.0.0.1', '10.0.0.0/8' ],
+  $dns_forwarders       = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
   include dns::server
 
   dns::server::options { '/etc/named/named.conf.options':
-    forwarders      => $dns_forwarders,
-    allow_recursion => $allow_recursion,
-    dnssec_enable   => $dnssec_enable,
-    listen_on_ipv6  => $listen_on_ipv6,
+    forwarders          => $dns_forwarders,
+    allow_recursion     => $allow_recursion,
+    dnssec_enable       => $dnssec_enable,
+    dnssec_validation   => $dnssec_validation,
+    listen_on_ipv6      => $listen_on_ipv6,
   }
-
-# dns::server::default { '/etc/sysconfig/named':
-#   options         => $def_options
-# }
 
   if $dns_zone {
     create_resources('dns::zone', $dns_zone)
@@ -72,8 +70,8 @@ class dnsserver (
 
   # Load SELinuux policy for named
   selinux::module { 'dns':
-    ensure => 'present',
-    source => 'puppet:///modules/dnsserver/dns.te'
+    ensure              => 'present',
+    source              => 'puppet:///modules/dnsserver/dns.te'
   }
 
 }
