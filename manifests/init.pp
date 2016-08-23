@@ -72,8 +72,8 @@ class dnsserver (
 
   file_line { 'fix-dnssec_on-centos':
     path                        => '/etc/named/named.conf.options',
-    line                        => 'dnssec-enable no;  dnssec-validation no;',
-    match                       => 'dnssec-enable no;'
+    line                        => '    dnssec-enable no;  dnssec-validation no;',
+    match                       => '    dnssec-enable no;'
   }
 
   file_line { 'ipv-only':
