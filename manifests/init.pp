@@ -41,7 +41,7 @@ class dnsserver (
   $dns_a_record                 = undef,
   $dns_cname_record             = undef,
   $dnssec_enable                = false,
-  $dnssec_validation            = undef,
+  $dnssec_validation            = 'no',
   $valid_dnssec_validation      = 'absent',
   $listen_on_ipv6               = [ 'none' ],
   $allow_recursion              = [ '127.0.0.1', '10.0.0.0/8' ],
