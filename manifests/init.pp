@@ -44,7 +44,7 @@ class dnsserver (
   $dnssec_validation            = 'no',
   $valid_dnssec_validation      = 'absent',
   $listen_on_ipv6               = [ 'none' ],
-  $allow_recursion              = [ '127.0.0.1', '10.0.0.0/8' ],
+  $allow_recursion              = [ '127.0.0.0/8', '10.0.0.0/8' ],
   $dns_forwarders               = [ '8.8.8.8', '8.8.4.4' ],
   ){
 
@@ -68,6 +68,12 @@ class dnsserver (
 
   if $dns_cname_record {
     create_resources('dns::record::cname', $dns_cname_record)
+  }
+
+  file_line { 'fix-dnssec_on-centos':
+    path                        => '/etc/named/named.conf.options',
+    line                        => 'dnssec-enable no;  dnssec-validation no;',
+    match                       => 'dnssec-enable no;'
   }
 
   file_line { 'ipv-only':
