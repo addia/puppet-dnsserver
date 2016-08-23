@@ -13,7 +13,7 @@
 #   dns_zone                           = a zone file
 #   dns_a_record                       = a dns A record
 #   dns_cname_record                   = a dns cname record
-#   dnssec_enable                      = bolean: true or false
+#   dnssec_enable                      = boolean: true or false
 #   valid_dnssec_validation            = yes, no, auto, absent
 #   dnssec_validation                  = yes, auto, undef
 #   listen_on_ipv6                     = none or ipv6 IP
@@ -40,7 +40,7 @@ class dnsserver (
   $dns_zone                     = undef,
   $dns_a_record                 = undef,
   $dns_cname_record             = undef,
-  $dnssec_enable                = 'false',
+  $dnssec_enable                = false,
   $dnssec_validation            = undef,
   $valid_dnssec_validation      = 'absent',
   $listen_on_ipv6               = [ 'none' ],
