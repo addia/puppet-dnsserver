@@ -70,6 +70,12 @@ class dnsserver (
     create_resources('dns::record::cname', $dns_cname_record)
   }
 
+  file_line { 'ipv-only':
+    path                        => '/etc/sysconfig/named',
+    line                        => 'OPTIONS=" -4"',
+    notify                      => Service['named']
+  }
+
   # Load SELinuux policy for named
   selinux::module { 'dns':
     ensure                      => 'present',
