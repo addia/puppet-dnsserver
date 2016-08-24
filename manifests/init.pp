@@ -14,8 +14,8 @@
 #   dns_a_record                       = a dns A record
 #   dns_cname_record                   = a dns cname record
 #   dnssec_enable                      = boolean: true or false
+#   dnssec_validation                  = yes, no, auto, absent
 #   valid_dnssec_validation            = yes, no, auto, absent
-#   dnssec_validation                  = yes, auto, undef
 #   listen_on_ipv6                     = none or ipv6 IP
 #   options                            = options for the sysconf file
 #   allow_recursion                    = enable with listen IPs
